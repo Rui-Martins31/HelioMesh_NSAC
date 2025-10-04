@@ -1,0 +1,10 @@
+# Virtual environments
+.venv
+
+# Caches
+__pycache__
+
+# Folders
+dataset
+animation
+*.zip
