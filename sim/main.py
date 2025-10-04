@@ -144,8 +144,9 @@ def main():
     # state.w   = np.array([0.0, 0.3, 0.0])   # spin around Y
     last = time.perf_counter()
 
-    clock = pygame.time.Clock()
-    running = True
+    clock         = pygame.time.Clock()
+    hour: int     = 0
+    running: bool = True
     while running:
         # Events
         for ev in pygame.event.get():
@@ -155,9 +156,11 @@ def main():
                 running = False
 
         # Time step
-        now = time.perf_counter()
-        dt = min(0.05, now - last)   # clamp to keep stable if the window stalls
+        now  = time.perf_counter()
+        dt   = min(0.05, now - last)   # clamp to keep stable if the window stalls
         last = now
+
+        hour += 1
 
         # Update dynamics
         runtime_ms = pygame.time.get_ticks()
